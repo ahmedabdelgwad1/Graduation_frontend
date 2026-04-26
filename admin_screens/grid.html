@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artifacts - Bibliotheca Alexandrina</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Cormorant+Garamond:wght@300;400&amp;family=Noto+Naskh+Arabic&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#35343a",
+                        "on-tertiary-fixed": "#281903",
+                        "tertiary-fixed": "#fcdeba",
+                        "secondary": "#93d2d1",
+                        "inverse-surface": "#e4e1e9",
+                        "secondary-fixed-dim": "#93d2d1",
+                        "primary": "#e6c364",
+                        "secondary-fixed": "#aeeeed",
+                        "error": "#ffb4ab",
+                        "surface-container-lowest": "#0e0e13",
+                        "surface-dim": "#131318",
+                        "surface-container-low": "#1b1b20",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#c2a786",
+                        "on-error": "#690005",
+                        "surface-container": "#1f1f25",
+                        "on-tertiary-container": "#4f3c22",
+                        "on-tertiary-fixed-variant": "#574329",
+                        "tertiary-fixed-dim": "#dfc29f",
+                        "outline-variant": "#4d4637",
+                        "tertiary": "#dfc2a0",
+                        "surface-bright": "#39383e",
+                        "surface-container-high": "#2a292f",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "on-primary-fixed-variant": "#584400",
+                        "inverse-on-surface": "#303036",
+                        "on-primary-fixed": "#241a00",
+                        "primary-container": "#c9a84c",
+                        "surface-tint": "#e6c364",
+                        "background": "#131318",
+                        "on-surface-variant": "#d0c5b2",
+                        "on-tertiary": "#3f2d15",
+                        "secondary-container": "#035252",
+                        "on-background": "#e4e1e9",
+                        "inverse-primary": "#755b00",
+                        "outline": "#99907e",
+                        "surface": "#131318",
+                        "on-primary-container": "#503d00",
+                        "on-secondary-container": "#85c3c3",
+                        "on-surface": "#e4e1e9",
+                        "on-secondary": "#003737",
+                        "on-secondary-fixed": "#002020",
+                        "primary-fixed-dim": "#e6c364",
+                        "surface-variant": "#35343a",
+                        "primary-fixed": "#ffe08f",
+                        "on-primary": "#3d2e00",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "margin-edge": "64px",
+                        "container-max": "1440px",
+                        "section-gap": "128px"
+                    },
+                    "fontFamily": {
+                        "arabic-display": ["Noto Naskh Arabic"],
+                        "body-sm": ["Cormorant Garamond"],
+                        "body-rt": ["Cormorant Garamond"],
+                        "label-caps": ["Cinzel"],
+                        "headline-md": ["Cinzel"],
+                        "display-lg": ["Cinzel"]
+                    },
+                    "fontSize": {
+                        "arabic-display": ["28px", { "lineHeight": "1.8", "fontWeight": "400" }],
+                        "body-sm": ["16px", { "lineHeight": "1.5", "fontWeight": "300" }],
+                        "body-rt": ["20px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.2em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "letterSpacing": "0.1em", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0a0a0f;
+            background-image: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.05"/></svg>');
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="text-on-background min-h-screen pb-24 md:pb-0 font-body-rt">
+<!-- TopAppBar (Hidden on Mobile) -->
+<header class="hidden md:flex justify-between items-center w-full px-16 h-20 fixed top-0 z-50 bg-[#12111a]/80 backdrop-blur-lg border-b border-[#c9a84c]/20 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+<div class="text-xl font-bold tracking-widest text-[#c9a84c] dark:text-[#c9a84c] font-serif uppercase text-sm">
+            Bibliotheca Alexandrina
+        </div>
+<nav class="flex gap-8">
+<a class="font-serif tracking-[0.2em] uppercase text-sm text-[#c9a84c]/60 hover:text-[#c9a84c] transition-colors hover:bg-[#c9a84c]/10 transition-all duration-500 px-4 py-2 rounded-DEFAULT" href="#">Exhibits</a>
+<a class="font-serif tracking-[0.2em] uppercase text-sm text-[#c9a84c]/60 hover:text-[#c9a84c] transition-colors hover:bg-[#c9a84c]/10 transition-all duration-500 px-4 py-2 rounded-DEFAULT" href="#">Map</a>
+<a class="font-serif tracking-[0.2em] uppercase text-sm text-[#c9a84c]/60 hover:text-[#c9a84c] transition-colors hover:bg-[#c9a84c]/10 transition-all duration-500 px-4 py-2 rounded-DEFAULT" href="#">Tickets</a>
+<a class="font-serif tracking-[0.2em] uppercase text-sm text-[#c9a84c] border-b-2 border-[#c9a84c] pb-1 px-4 py-2 hover:bg-[#c9a84c]/10 transition-all duration-500" href="#">Archive</a>
+</nav>
+<div class="flex gap-4 text-[#c9a84c]">
+<span class="material-symbols-outlined hover:bg-[#c9a84c]/10 p-2 rounded-full cursor-pointer transition-all duration-500">language</span>
+<span class="material-symbols-outlined hover:bg-[#c9a84c]/10 p-2 rounded-full cursor-pointer transition-all duration-500">account_circle</span>
+</div>
+</header>
+<!-- BottomNavBar (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-6 bg-[#12111a]/90 backdrop-blur-md rounded-t-none border-t border-[#c9a84c]/20 shadow-[0_-20px_50px_rgba(138,111,46,0.15)]">
+<a class="flex flex-col items-center justify-center text-[#c9a84c]/40 hover:text-[#c9a84c] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">museum</span>
+<span class="text-[10px] uppercase tracking-[0.15em] font-serif">Galleries</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#c9a84c]/40 hover:text-[#c9a84c] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">bolt</span>
+<span class="text-[10px] uppercase tracking-[0.15em] font-serif">Oracle</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#c9a84c] scale-110 hover:text-[#c9a84c] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<span class="text-[10px] uppercase tracking-[0.15em] font-serif">Collection</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#c9a84c]/40 hover:text-[#c9a84c] transition-transform" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="text-[10px] uppercase tracking-[0.15em] font-serif">Profile</span>
+</a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-8 md:pt-32 px-6 md:px-margin-edge max-w-container-max mx-auto relative z-10">
+<!-- Back Button -->
+<a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-12 font-label-caps text-label-caps uppercase group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:-translate-x-1 transition-transform">arrow_left</span>
+            Collections
+        </a>
+<!-- Section Hero -->
+<div class="text-center mb-section-gap relative">
+<div class="absolute inset-0 flex items-center justify-center -z-10 opacity-10">
+<div class="w-64 h-64 border border-primary rounded-full blur-[2px]"></div>
+</div>
+<span class="material-symbols-outlined text-5xl text-primary mb-6 block" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 relative inline-block">
+                Ptolemaic Antiquities
+                <div class="absolute -bottom-4 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+</h1>
+<p class="font-body-rt text-body-rt text-on-surface-variant max-w-2xl mx-auto mt-8">
+                Explore the remnants of a dynasty where Hellenistic culture intertwined with ancient Egyptian traditions, birthing an era of unparalleled artistic and intellectual fusion.
+            </p>
+</div>
+<!-- Search Bar -->
+<div class="max-w-xl mx-auto mb-16 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-b border-outline-variant text-on-surface px-12 py-4 focus:outline-none focus:border-primary focus:ring-0 focus:shadow-[0_0_20px_rgba(201,168,76,0.15)] transition-all bg-transparent font-body-sm text-body-sm placeholder-outline" placeholder="Search the collection..." type="text"/>
+</div>
+<!-- Artifacts Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter mb-section-gap">
+<!-- Card 1 -->
+<div class="group relative bg-[#12111a]/80 backdrop-blur-xl border border-outline-variant hover:border-primary transition-colors duration-500 overflow-hidden cursor-pointer flex flex-col h-[400px]">
+<div class="h-[60%] overflow-hidden relative">
+<img alt="Stone Bust" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80 group-hover:opacity-100" data-alt="Ancient weathered stone bust of a Ptolemaic ruler, dramatic museum lighting against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhROrevFarT9SAER_RuSVymsFApiTg6ZevaYJQ4zEl8RNyYP1QNErtYn6cGDUKqESNPrR8qO01URfpg866H_YfpPmNqYU_iW8YbGAFx0sEty-sue_2FxUnGg7zJL7CFdwuz9Hh03HyqclVousYFW-voIdTuZZ_xSiuJ0PSDmHWVajmusa05JHiLfmYdvQysS60Xtmr3MZvdg-AAwWF_5ql8lFf5lwWjPKmauYh5DE_AwJv9Augu1dYvzybtDvzKHKi2CoG3Sw183OF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12111a] to-transparent"></div>
+</div>
+<div class="h-[40%] p-6 flex flex-col justify-between relative z-10 bg-gradient-to-b from-[#12111a] to-[#1a1924]">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-xl mb-2">Bust of Ptolemy I Soter</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hall of Kings</p>
+</div>
+<div class="font-label-caps text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0 uppercase flex items-center gap-2">
+                        View Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative bg-[#12111a]/80 backdrop-blur-xl border border-outline-variant hover:border-primary transition-colors duration-500 overflow-hidden cursor-pointer flex flex-col h-[400px] lg:mt-8">
+<div class="h-[60%] overflow-hidden relative">
+<img alt="Basalt Statue" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80 group-hover:opacity-100" data-alt="Intricately carved basalt statue of an Egyptian deity from the Ptolemaic period, soft spotlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnVnEJOV7f67-JBX-L7xMw1GW1wYRzPp-3ghDFoO3-S5ngWoH0Podlk0qn2WOJY2HyHgHjFedak6krquX2rqLv6g-YO_oC37D0YM4d-jQKGCTPhZLdJt6lZ7xlZsy8qgr9lVQEv13jIVPcmqGgKQX8WZ3kBFZW-3fRq2-dedZsAR3TMCzrNY6VOGxArdntAYuyTKrvQVFOHAQLjv75rATCjGy2kLjHSqKqGY2hobxQq4sNl05UnlnKp2nZGiwBoTk_12FpmCm9OD19"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12111a] to-transparent"></div>
+</div>
+<div class="h-[40%] p-6 flex flex-col justify-between relative z-10 bg-gradient-to-b from-[#12111a] to-[#1a1924]">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-xl mb-2">Statue of Horus</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deities Pavilion</p>
+</div>
+<div class="font-label-caps text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0 uppercase flex items-center gap-2">
+                        View Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative bg-[#12111a]/80 backdrop-blur-xl border border-outline-variant hover:border-primary transition-colors duration-500 overflow-hidden cursor-pointer flex flex-col h-[400px]">
+<div class="h-[60%] overflow-hidden relative">
+<img alt="Papyrus Fragment" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80 group-hover:opacity-100" data-alt="Fragment of a papyrus scroll with ancient Greek text, illuminated by warm, raking light on a dark surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzfdBTaxs4ZOLygr18MfUMbaZ05AM0Y22lk8VyX2C4971mNEsA1zT83XgxktypaEMWBkcRf5gA8dAxtOn2CdzYQRuXvxlYqMJwX9cRk4p2c31dlBPvPuPWAjJGfRjNkuPRq_Q8DGjdZkUM3RE9VvGP27LbksLBrofDtbw13uj9tRjziwKP47aYqUWHfmmuxG_8KryoJ7F1qvXJwYqKq1tqk16KY6DIJ3RH_A5Bo8ST8VOb6A-Cj5QwgUtTT1bdFwM6F6IJAXsDD1H"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12111a] to-transparent"></div>
+</div>
+<div class="h-[40%] p-6 flex flex-col justify-between relative z-10 bg-gradient-to-b from-[#12111a] to-[#1a1924]">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-xl mb-2">Alexandrian Decree</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Library Archives</p>
+</div>
+<div class="font-label-caps text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0 uppercase flex items-center gap-2">
+                        View Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative bg-[#12111a]/80 backdrop-blur-xl border border-outline-variant hover:border-primary transition-colors duration-500 overflow-hidden cursor-pointer flex flex-col h-[400px] lg:mt-8">
+<div class="h-[60%] overflow-hidden relative">
+<img alt="Gold Coin" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)] opacity-80 group-hover:opacity-100" data-alt="Golden Hellenistic coin bearing the profile of Cleopatra, resting on dark velvet with a soft golden glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlCv4xtBPsys-QYyhHFkZyVEkkTiy5jjV1gcAa3EW8oTKJ0ZFWjE_1sMpWWjQ-4CxE5pN8Nvy68QxnrYD5JcnZR6zrRaDkNgZzghQV2-HjzXpKdog5EGHratQLXlktj5IYDhMUkklhTCxD0lLU4hniHEdm3Rlr7NGAko7OlYkzskOSRoZMby9M4k0s9XUj_k-Wfr0ceyEyYauvKNBv0EqHbb6GCFzia1BRC8EQLQOcOAbuGI8TGOCjHDi1Wc5Rtxoy0h2Uj9Vu5RbV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12111a] to-transparent"></div>
+</div>
+<div class="h-[40%] p-6 flex flex-col justify-between relative z-10 bg-gradient-to-b from-[#12111a] to-[#1a1924]">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-xl mb-2">Tetradrachm of Cleopatra VII</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Numismatics Wing</p>
+</div>
+<div class="font-label-caps text-label-caps text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0 uppercase flex items-center gap-2">
+                        View Details <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating AI Button -->
+<button class="fixed bottom-24 md:bottom-12 right-6 md:right-12 z-50 bg-[#12111a] border border-[#c9a84c] text-[#c9a84c] p-4 rounded-full shadow-[0_0_30px_rgba(201,168,76,0.3)] hover:bg-[#c9a84c] hover:text-[#12111a] transition-all duration-500 group flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-label-caps text-label-caps uppercase hidden md:block max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap">Ask The Oracle</span>
+</button>
+</body></html>
