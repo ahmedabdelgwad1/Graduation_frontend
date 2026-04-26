@@ -39,7 +39,15 @@ export default async function ArtifactsPage({
     console.error(e);
   }
 
-  if (artifacts.length === 0) {
+  // High quality images from the Stitch design
+  const STITCH_IMAGES = [
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAhROrevFarT9SAER_RuSVymsFApiTg6ZevaYJQ4zEl8RNyYP1QNErtYn6cGDUKqESNPrR8qO01URfpg866H_YfpPmNqYU_iW8YbGAFx0sEty-sue_2FxUnGg7zJL7CFdwuz9Hh03HyqclVousYFW-voIdTuZZ_xSiuJ0PSDmHWVajmusa05JHiLfmYdvQysS60Xtmr3MZvdg-AAwWF_5ql8lFf5lwWjPKmauYh5DE_AwJv9Augu1dYvzybtDvzKHKi2CoG3Sw183OF",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDnVnEJOV7f67-JBX-L7xMw1GW1wYRzPp-3ghDFoO3-S5ngWoH0Podlk0qn2WOJY2HyHgHjFedak6krquX2rqLv6g-YO_oC37D0YM4d-jQKGCTPhZLdJt6lZ7xlZsy8qgr9lVQEv13jIVPcmqGgKQX8WZ3kBFZW-3fRq2-dedZsAR3TMCzrNY6VOGxArdntAYuyTKrvQVFOHAQLjv75rATCjGy2kLjHSqKqGY2hobxQq4sNl05UnlnKp2nZGiwBoTk_12FpmCm9OD19",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuBSzfdBTaxs4ZOLygr18MfUMbaZ05AM0Y22lk8VyX2C4971mNEsA1zT83XgxktypaEMWBkcRf5gA8dAxtOn2CdzYQRuXvxlYqMJwX9cRk4p2c31dlBPvPuPWAjJGfRjNkuPRq_Q8DGjdZkUM3RE9VvGP27LbksLBrofDtbw13uj9tRjziwKP47aYqUWHfmmuxG_8KryoJ7F1qvXJwYqKq1tqk16KY6DIJ3RH_A5Bo8ST8VOb6A-Cj5QwgUtTT1bdFwM6F6IJAXsDD1H",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuDlCv4xtBPsys-QYyhHFkZyVEkkTiy5jjV1gcAa3EW8oTKJ0ZFWjE_1sMpWWjQ-4CxE5pN8Nvy68QxnrYD5JcnZR6zrRaDkNgZzghQV2-HjzXpKdog5EGHratQLXlktj5IYDhMUkklhTCxD0lLU4hniHEdm3Rlr7NGAko7OlYkzskOSRoZMby9M4k0s9XUj_k-Wfr0ceyEyYauvKNBv0EqHbb6GCFzia1BRC8EQLQOcOAbuGI8TGOCjHDi1Wc5Rtxoy0h2Uj9Vu5RbV"
+  ];
+
+  if (!Array.isArray(artifacts) || artifacts.length === 0) {
     artifacts = Array.from({ length: 8 }).map((_, i) => ({
       id: `${i}`,
       section_number: parseInt(sectionId),
@@ -47,6 +55,7 @@ export default async function ArtifactsPage({
       artifact_name_ar: `القطعة ${i + 1}`,
       hall_en: "Main Hall",
       hall_ar: "القاعة الرئيسية",
+      image_url: STITCH_IMAGES[i % 4]
     }));
   }
 
@@ -94,9 +103,9 @@ export default async function ArtifactsPage({
           </div>
 
           {/* Artifacts Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {artifacts.map((art: any) => (
-              <ArtifactCard key={art.id} artifact={art} locale={locale} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+            {artifacts.map((art: any, index: number) => (
+              <ArtifactCard key={art.id} artifact={art} locale={locale} index={index} />
             ))}
           </div>
         </main>
