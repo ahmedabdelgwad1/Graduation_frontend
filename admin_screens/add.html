@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Artifact - Bibliotheca Alexandrina</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&amp;family=Noto+Naskh+Arabic:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#4d4637",
+                    "on-surface": "#ebe1cf",
+                    "inverse-on-surface": "#353023",
+                    "on-secondary-fixed": "#1b1b20",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#ebe1cf",
+                    "secondary-fixed-dim": "#c8c5cd",
+                    "on-primary-fixed-variant": "#584400",
+                    "on-error-container": "#ffdad6",
+                    "background": "#171308",
+                    "surface": "#171308",
+                    "secondary-container": "#49484e",
+                    "on-surface-variant": "#d0c5b2",
+                    "inverse-primary": "#755b00",
+                    "on-tertiary": "#003737",
+                    "surface-container-highest": "#393427",
+                    "surface-bright": "#3e392c",
+                    "tertiary-fixed-dim": "#93d2d1",
+                    "primary-container": "#c9a84c",
+                    "on-tertiary-container": "#004848",
+                    "on-primary-fixed": "#241a00",
+                    "surface-container-low": "#1f1b10",
+                    "tertiary-container": "#78b6b6",
+                    "surface-container-high": "#2e2a1d",
+                    "on-secondary-fixed-variant": "#47464c",
+                    "on-primary": "#3d2e00",
+                    "tertiary-fixed": "#aeeeed",
+                    "surface-tint": "#e6c364",
+                    "surface-container-lowest": "#120e04",
+                    "primary-fixed": "#ffe08f",
+                    "primary": "#e6c364",
+                    "on-tertiary-fixed-variant": "#004f50",
+                    "tertiary": "#93d2d1",
+                    "surface-container": "#241f13",
+                    "primary-fixed-dim": "#e6c364",
+                    "on-tertiary-fixed": "#002020",
+                    "secondary-fixed": "#e4e1e9",
+                    "on-secondary": "#303036",
+                    "on-primary-container": "#503d00",
+                    "secondary": "#c8c5cd",
+                    "on-secondary-container": "#bab7be",
+                    "on-background": "#ebe1cf",
+                    "surface-dim": "#171308",
+                    "outline": "#99907e",
+                    "on-error": "#690005",
+                    "surface-variant": "#393427",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "128px",
+                    "gutter": "32px",
+                    "unit": "8px",
+                    "margin-page": "64px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Cinzel"
+                    ],
+                    "display-lg": [
+                            "Cinzel"
+                    ],
+                    "body-lg": [
+                            "Cormorant Garamond"
+                    ],
+                    "arabic-display": [
+                            "Noto Naskh Arabic"
+                    ],
+                    "label-sm": [
+                            "Cinzel"
+                    ],
+                    "body-md": [
+                            "Cormorant Garamond"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "arabic-display": [
+                            "28px",
+                            {
+                                    "lineHeight": "1.8",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.2em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom ghost input utilities to avoid default Tailwind form styles overriding too much */
+        .ghost-input {
+            background-color: transparent !important;
+            border: none !important;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.4) !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        .ghost-input:focus {
+            border-bottom-color: #e6c364 !important;
+            outline: none !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden min-h-screen font-body-md">
+<!-- Shared Component: SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col py-8 z-50 bg-[#0a0a0f] dark:bg-[#0a0a0f] border-r border-[#c9a84c]/20 shadow-[4px_0_24px_rgba(0,0,0,0.5)] w-64">
+<!-- Header / Brand -->
+<div class="px-6 mb-12 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border border-[#c9a84c]/40 overflow-hidden mb-4 bg-[#1a1825]">
+<img alt="Museum Admin Portrait" class="w-full h-full object-cover" data-alt="Black and white portrait of a scholarly man with glasses, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaldnXm1BMNDPpPtEs3Rwy9wqb2y9vgvA8E1TsVMekU09nmXDRShKmJ3G9YbHikZNjmV1wXTqxIT88lt6RtjZOCofEdq9rCS_d2mxzlCfpbn9FSMTDInFdnP8pKvdW0raM7MBuDgr6vY0Z8uhLcm0hsjtelCChn_-yR4saiyQrkuV7UdDb0e22_uwpP0ibX8VNs6oOVuw2jlh9uY8tUxrem6WRJX4-l4Z2faMaB58jUrMHG9O7GlSs74ZnKvDDxqqHo2WvxAWVvlc"/>
+</div>
+<h1 class="text-xl font-bold text-[#c9a84c] tracking-tighter font-['Cinzel'] uppercase">Bibliotheca Alexandrina</h1>
+<p class="text-xs text-gray-500 mt-2 font-['Cinzel'] uppercase tracking-widest">Antiquities Registry</p>
+</div>
+<!-- CTA -->
+<div class="px-6 mb-8">
+<button class="w-full border border-[#c9a84c] text-[#c9a84c] py-2 font-['Cinzel'] uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#c9a84c] hover:text-[#0a0a0f]">
+                Add Artifact
+            </button>
+</div>
+<!-- Navigation Links -->
+<ul class="flex-1 flex flex-col space-y-2">
+<li>
+<a class="flex items-center px-6 py-3 font-['Cinzel'] uppercase tracking-widest text-sm text-gray-500 hover:text-[#c9a84c]/80 transition-all duration-300 hover:bg-[#1a1825]" href="#">
+<span class="material-symbols-outlined mr-4">dashboard</span>
+                    Overview
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 font-['Cinzel'] uppercase tracking-widest text-sm text-gray-500 hover:text-[#c9a84c]/80 transition-all duration-300 hover:bg-[#1a1825]" href="#">
+<span class="material-symbols-outlined mr-4">account_balance</span>
+                    Collection
+                </a>
+</li>
+<!-- Active Tab -->
+<li>
+<a class="flex items-center px-6 py-3 font-['Cinzel'] uppercase tracking-widest text-sm transition-all duration-300 text-[#c9a84c] border-r-2 border-[#c9a84c] bg-gradient-to-r from-[#c9a84c]/10 to-transparent translate-x-1" href="#">
+<span class="material-symbols-outlined mr-4 filled" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                    Acquisitions
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 font-['Cinzel'] uppercase tracking-widest text-sm text-gray-500 hover:text-[#c9a84c]/80 transition-all duration-300 hover:bg-[#1a1825]" href="#">
+<span class="material-symbols-outlined mr-4">history_edu</span>
+                    Scholars
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 font-['Cinzel'] uppercase tracking-widest text-sm text-gray-500 hover:text-[#c9a84c]/80 transition-all duration-300 hover:bg-[#1a1825]" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<!-- Footer Links -->
+<div class="mt-auto px-6 pt-4 border-t border-[#c9a84c]/10">
+<a class="flex items-center py-3 font-['Cinzel'] uppercase tracking-widest text-sm text-gray-500 hover:text-[#c9a84c]/80 transition-all duration-300 hover:bg-[#1a1825] -mx-6 px-6" href="#">
+<span class="material-symbols-outlined mr-4">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 z-40 bg-[#0a0a0f]/80 backdrop-blur-md h-16 border-b border-[#c9a84c]/20 shadow-sm flex justify-between items-center px-8 ml-64 w-[calc(100%-16rem)]">
+<!-- Brand / Product Name -->
+<div class="flex items-center">
+<span class="text-lg font-semibold text-[#c9a84c] font-['Cinzel'] tracking-widest">Antiquities Management</span>
+</div>
+<!-- Navigation & Actions Cluster -->
+<div class="flex items-center space-x-8">
+<nav class="hidden md:flex space-x-6 mr-4">
+<!-- No active tab selected for this specific form view, keeping them neutral -->
+<a class="text-gray-400 font-['Cinzel'] tracking-widest text-sm hover:text-[#e8c97a] transition-colors py-5 border-b border-transparent" href="#">Dashboard</a>
+<a class="text-gray-400 font-['Cinzel'] tracking-widest text-sm hover:text-[#e8c97a] transition-colors py-5 border-b border-transparent" href="#">Archives</a>
+</nav>
+<div class="h-6 w-px bg-[#c9a84c]/20 hidden md:block"></div>
+<!-- Search (on_right) - Implied by layout, icon representation -->
+<button class="text-[#c9a84c] hover:text-[#e8c97a] transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<!-- Trailing Icon Actions -->
+<button class="text-[#c9a84c] hover:text-[#e8c97a] transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-[#c9a84c] hover:text-[#e8c97a] transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<!-- Trailing Primary Action -->
+<button class="border border-[#c9a84c] text-[#c9a84c] px-4 py-1.5 font-['Cinzel'] uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[#c9a84c] hover:text-[#0a0a0f]">
+                New Entry
+            </button>
+<div class="w-8 h-8 rounded-full border border-[#c9a84c]/40 overflow-hidden bg-[#1a1825] ml-2">
+<img alt="Admin User" class="w-full h-full object-cover" data-alt="Black and white portrait of a scholarly man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB75sngZsbnn3e9qBi8pf6ggivYU4QoycOjhXMrDo-fUyzonakOHwnXKC3TNRMwzj04KHl5lM6yPLT3UsKkbKvtl5EpJmPla51QkBsWARgAJMBc4IWfq8AqpP6_lX-knIg0Q_6s41K_2WwPa0-1M0UveXuDpmj2AvzsacuyF1O8K8VXgurLPkTOfxr9k5901oyBxHBUhux8lDb-QBBGwGHbOO-c19Z4pbJglybLblCIn3Iij1FCZT8KcbaAr6KJgF1EY4YU0Khbxrw"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen bg-background flex flex-col">
+<div class="flex-1 w-full max-w-container-max mx-auto px-gutter py-margin-page">
+<!-- Page Header -->
+<div class="mb-12 flex justify-between items-end border-b border-outline-variant/30 pb-6">
+<div>
+<h2 class="font-headline-md text-primary mb-2">Acquisition Protocol</h2>
+<h1 class="font-display-lg text-on-surface">Add New Artifact</h1>
+</div>
+<div class="text-right pb-2 hidden md:block">
+<p class="font-label-sm text-outline tracking-widest mb-1">Registry Date</p>
+<p class="font-headline-md text-surface-tint text-xl">14 Oct 2023</p>
+</div>
+</div>
+<!-- The Form Grid -->
+<form action="#" class="grid grid-cols-1 lg:grid-cols-12 gap-gutter" method="POST">
+<!-- Left Column: Data Entry -->
+<div class="lg:col-span-8 flex flex-col gap-12">
+<!-- Section: Basic Information -->
+<section class="bg-[#1a1825] relative p-8 border-t border-primary/20 before:content-[''] before:absolute before:inset-0 before:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] before:opacity-10 before:pointer-events-none">
+<div class="flex items-center mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary mr-3">info</span>
+<h3 class="font-headline-md text-xl text-on-surface uppercase tracking-widest">Basic Information</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- English Name -->
+<div class="relative group">
+<label class="block font-label-sm text-primary mb-2 opacity-80 group-focus-within:opacity-100 transition-opacity" for="artifact_name_en">Artifact Name (English)</label>
+<input class="w-full ghost-input text-on-surface font-body-lg placeholder:text-outline-variant pb-2 focus:ring-0" id="artifact_name_en" name="artifact_name_en" placeholder="e.g. Canopic Jar of Imsety" type="text"/>
+</div>
+<!-- Arabic Name -->
+<div class="relative group" dir="rtl">
+<label class="block font-label-sm text-primary mb-2 opacity-80 group-focus-within:opacity-100 transition-opacity" for="artifact_name_ar">اسم القطعة الأثرية (عربي)</label>
+<input class="w-full ghost-input text-on-surface font-arabic-display text-2xl placeholder:text-outline-variant pb-2 focus:ring-0 text-right" id="artifact_name_ar" name="artifact_name_ar" placeholder="مثال: إناء كانوبي لإمستي" type="text"/>
+</div>
+<!-- Category -->
+<div class="relative group md:col-span-2 mt-4">
+<label class="block font-label-sm text-primary mb-2 opacity-80 group-focus-within:opacity-100 transition-opacity" for="category">Classification / Category</label>
+<select class="w-full ghost-input text-on-surface font-body-lg pb-2 focus:ring-0 appearance-none bg-transparent" id="category" name="category">
+<option class="bg-surface-container text-on-surface" value="">Select a category...</option>
+<option class="bg-surface-container text-on-surface" value="sculpture">Statuary &amp; Sculpture</option>
+<option class="bg-surface-container text-on-surface" value="jewelry">Adornment &amp; Jewelry</option>
+<option class="bg-surface-container text-on-surface" value="manuscript">Papyrus &amp; Manuscripts</option>
+<option class="bg-surface-container text-on-surface" value="pottery">Ceramics &amp; Vessels</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none top-6">
+<span class="material-symbols-outlined text-primary/50">arrow_drop_down</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Detailed Records -->
+<section class="bg-[#1a1825] relative p-8 border-t border-primary/20">
+<div class="flex items-center mb-8 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary mr-3">history_edu</span>
+<h3 class="font-headline-md text-xl text-on-surface uppercase tracking-widest">Detailed Records</h3>
+</div>
+<div class="space-y-8">
+<!-- English Description -->
+<div class="relative group">
+<label class="block font-label-sm text-primary mb-4 opacity-80 group-focus-within:opacity-100 transition-opacity" for="desc_en">Historical Context &amp; Description (English)</label>
+<textarea class="w-full bg-surface-container-low border border-primary/20 focus:border-primary/60 text-on-surface font-body-md p-4 rounded-none focus:ring-0 resize-none placeholder:text-outline-variant" id="desc_en" name="desc_en" placeholder="Detail the provenance, material composition, and historical significance..." rows="4"></textarea>
+</div>
+<!-- Arabic Description -->
+<div class="relative group" dir="rtl">
+<label class="block font-label-sm text-primary mb-4 opacity-80 group-focus-within:opacity-100 transition-opacity" for="desc_ar">السياق التاريخي والوصف (عربي)</label>
+<textarea class="w-full bg-surface-container-low border border-primary/20 focus:border-primary/60 text-on-surface font-arabic-display text-xl p-4 rounded-none focus:ring-0 resize-none placeholder:text-outline-variant leading-loose" id="desc_ar" name="desc_ar" placeholder="تفاصيل المصدر، وتكوين المواد، والأهمية التاريخية..." rows="4"></textarea>
+</div>
+<!-- Hall Assignment -->
+<div class="relative group mt-4 w-full md:w-1/2">
+<label class="block font-label-sm text-primary mb-2 opacity-80 group-focus-within:opacity-100 transition-opacity" for="hall">Exhibition Assignment</label>
+<select class="w-full ghost-input text-on-surface font-body-lg pb-2 focus:ring-0 appearance-none bg-transparent" id="hall" name="hall">
+<option class="bg-surface-container text-on-surface" value="">Unassigned (Vault)</option>
+<option class="bg-surface-container text-on-surface" value="hall_a">Hall of the Ptolemies</option>
+<option class="bg-surface-container text-on-surface" value="hall_b">Pharaonic Antiquities</option>
+<option class="bg-surface-container text-on-surface" value="hall_c">Greco-Roman Gallery</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none top-6">
+<span class="material-symbols-outlined text-primary/50">arrow_drop_down</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Media & Actions -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Section: Media Upload -->
+<section class="bg-[rgba(26,24,37,0.4)] backdrop-blur-md p-6 border border-primary/10 flex-1 flex flex-col">
+<div class="flex items-center mb-6 border-b border-outline-variant/20 pb-4">
+<span class="material-symbols-outlined text-primary mr-3">photo_camera</span>
+<h3 class="font-headline-md text-lg text-on-surface uppercase tracking-widest">Media Vitrine</h3>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm mb-6">Upload high-resolution archival imagery. Primary image will be displayed in the public catalog.</p>
+<!-- Dropzone -->
+<div class="flex-1 min-h-[300px] border-2 border-dashed border-[#c9a84c]/40 hover:border-[#c9a84c] transition-colors bg-surface-container-lowest/30 flex flex-col items-center justify-center p-8 text-center cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[#c9a84c] text-3xl">add_photo_alternate</span>
+</div>
+<span class="font-headline-md text-primary text-sm uppercase tracking-widest mb-2 block">Upload Master File</span>
+<span class="font-body-md text-outline-variant text-sm block">Drag &amp; drop or click to browse</span>
+<span class="font-label-sm text-outline-variant text-[10px] mt-4 block uppercase tracking-wider">TIFF, PNG, JPG up to 50MB</span>
+</div>
+</section>
+<!-- Action Area -->
+<section class="bg-[#1a1825] p-6 border-t border-primary shadow-[inset_0_1px_0_rgba(232,201,122,0.2)]">
+<div class="mb-6">
+<label class="flex items-start space-x-3 cursor-pointer">
+<input class="mt-1 form-checkbox h-4 w-4 text-primary bg-transparent border-primary/50 focus:ring-primary focus:ring-offset-background rounded-none" type="checkbox"/>
+<span class="font-body-md text-on-surface-variant text-sm">I certify that the provenance of this artifact has been verified according to the 1970 UNESCO Convention guidelines.</span>
+</label>
+</div>
+<button class="w-full relative group overflow-hidden border-2 border-primary text-primary px-8 py-4 font-label-sm uppercase tracking-[0.2em] transition-all duration-500 hover:text-surface hover:border-surface-tint" type="submit">
+<span class="relative z-10 font-bold text-sm">Register Artifact</span>
+<div class="absolute inset-0 bg-primary translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out z-0"></div>
+</button>
+</section>
+</div>
+</form>
+</div>
+</main>
+</body></html>
