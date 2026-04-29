@@ -1,21 +1,17 @@
 import { Info, PenTool, Camera } from "lucide-react";
 import { getDictionary } from "@/lib/dictionaries";
 
-export default async function AddNewArtifactEntry({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
+export default async function AdminNewArtifact() {
+  const locale: "en" | "ar" = "en";
   const t = getDictionary(locale as "en" | "ar").admin.new;
-  const isRTL = locale === "ar";
+  const isRTL = (locale as string) === "ar";
   const arabicClass = isRTL ? "font-[family-name:var(--font-arabic)]" : "";
   const headingClass = isRTL
     ? "font-[family-name:var(--font-arabic)]"
     : "font-[family-name:var(--font-headline-md)]";
 
   // Today's date for registry
-  const today = new Date().toLocaleDateString(locale === "ar" ? "ar-EG" : "en-GB", {
+  const today = new Date().toLocaleDateString((locale as string) === "ar" ? "ar-EG" : "en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",

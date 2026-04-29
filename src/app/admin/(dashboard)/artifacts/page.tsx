@@ -49,13 +49,9 @@ const IMAGES = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCEDOytbZTS1GRIL-RWmak3ZGLkyavfnKrURvOAb-uwisBDY4QqsCtQYqI30weSB1RWX8T442CQTRaLRLLQ_LtY_1a9VNxcrDNvX8mNmHebVDDcJqcztGQgWR7xIZGsTZAVMXVvhcmauCYoTWyiULBayuYqsUi33hhk2s5f0atJhJjocJ33VycjCpjj3aQez4VplP1Ej18iv6ZlzQm6KpDJZNdC_oVgFj0rF0am_2KFvFsODl1w1_QN_PjBoI2AuuNcWk8ISy46Tg8",
 ];
 
-export default async function ManageArtifactsRegistry({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const isAr = locale === "ar";
+export default async function AdminArtifacts() {
+  const locale: "en" | "ar" = "en";
+  const isAr = (locale as string) === "ar";
   const t = L[isAr ? "ar" : "en"];
 
   return (

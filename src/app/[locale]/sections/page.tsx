@@ -1,7 +1,7 @@
 "use client";
 import { PageTransition } from "@/components/layout/PageTransition";
 import { FloatingAIButton } from "@/components/layout/FloatingAIButton";
-import { SectionCard } from "@/components/sections/SectionCard";
+import { SectionCard } from "@/components/features/sections/SectionCard";
 import { getDictionary } from "@/lib/dictionaries";
 import { use } from "react";
 import Link from "next/link";

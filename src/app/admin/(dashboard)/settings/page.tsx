@@ -2,13 +2,9 @@ import Image from "next/image";
 import { User, Settings as Tune, Shield, Camera, Check, Key, QrCode, LogOut } from "lucide-react";
 import { getDictionary } from "@/lib/dictionaries";
 
-export default async function AdminSettingsPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  const isRTL = locale === "ar";
+export default async function AdminSettings() {
+  const locale: "en" | "ar" = "en";
+  const isRTL = (locale as string) === "ar";
   const hClass = isRTL
     ? "font-[family-name:var(--font-arabic)]"
     : "font-[family-name:var(--font-headline-md)]";
@@ -149,8 +145,8 @@ export default async function AdminSettingsPage({
               <div>
                 <h4 className={`${hClass} text-xs text-[var(--color-primary)]/80 uppercase tracking-widest mb-4`}>{labels.langLabel}</h4>
                 <div className="flex flex-wrap items-center gap-4">
-                  <a href={`/en/admin/settings`} className={`border px-6 py-2 ${hClass} text-xs uppercase tracking-widest transition-colors ${locale === "en" ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]" : "border-[var(--color-outline-variant)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]"}`}>EN - English</a>
-                  <a href={`/ar/admin/settings`} className={`border px-6 py-2 font-[family-name:var(--font-arabic)] text-xl transition-colors ${locale === "ar" ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]" : "border-[var(--color-outline-variant)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]"}`}>العربية</a>
+                  <a href={`/en/admin/settings`} className={`border px-6 py-2 ${hClass} text-xs uppercase tracking-widest transition-colors ${(locale as string) === "en" ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]" : "border-[var(--color-outline-variant)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]"}`}>EN - English</a>
+                  <a href={`/ar/admin/settings`} className={`border px-6 py-2 font-[family-name:var(--font-arabic)] text-xl transition-colors ${(locale as string) === "ar" ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)]" : "border-[var(--color-outline-variant)] text-[var(--color-on-surface-variant)] hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]"}`}>العربية</a>
                 </div>
               </div>
 

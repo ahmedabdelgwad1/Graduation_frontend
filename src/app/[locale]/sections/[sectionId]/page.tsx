@@ -1,6 +1,6 @@
 import { PageTransition } from "@/components/layout/PageTransition";
 import { FloatingAIButton } from "@/components/layout/FloatingAIButton";
-import { ArtifactCard } from "@/components/artifacts/ArtifactCard";
+import { ArtifactCard } from "@/components/features/artifacts/ArtifactCard";
 import { getDictionary } from "@/lib/dictionaries";
 import { getArtifacts } from "@/lib/api";
 import Link from "next/link";

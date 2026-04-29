@@ -26,9 +26,9 @@ const L = {
   },
 };
 
-export default function AdminLogin({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = use(params);
-  const isAr = locale === "ar";
+export default function AdminLogin() {
+  const locale: "en" | "ar" = "en"; // Default admin language
+  const isAr = (locale as string) === "ar";
   const t = L[isAr ? "ar" : "en"];
   const router = useRouter();
 

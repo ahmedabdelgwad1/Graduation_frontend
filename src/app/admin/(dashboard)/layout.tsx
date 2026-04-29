@@ -3,14 +3,11 @@ import { AdminHeader } from "@/components/admin/AdminHeader";
 
 export default async function AdminDashboardLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const p = await params;
-  const locale = p.locale;
-  const isRTL = locale === "ar";
+  const locale: "en" | "ar" = "en"; // Defaulting to english for admin, or can be changed to use next-intl cookies later
+  const isRTL = (locale as string) === "ar";
 
   return (
     <div

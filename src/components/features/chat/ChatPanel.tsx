@@ -1,31 +1,9 @@
 "use client";
-import { useState } from "react";
 import { Send, Mic, Sparkles } from "lucide-react";
-import { getDictionary } from "@/lib/dictionaries";
+import { useChat } from "@/hooks/useChat";
 
 export function ChatPanel({ artifact, locale }: { artifact: any; locale: "en" | "ar" }) {
-  const [messages, setMessages] = useState<{role: 'user' | 'ai', content: string}[]>([
-    { role: 'ai', content: locale === 'en' ? `Tell me about ${artifact.artifact_name_en}` : `حدثني عن ${artifact.artifact_name_ar}` }
-  ]);
-  const [input, setInput] = useState("");
-  const dict = getDictionary(locale);
-  const dir = locale === "ar" ? "rtl" : "ltr";
-
-  const send = (msg: string) => {
-    if(!msg.trim()) return;
-    setMessages(prev => [...prev, { role: 'user', content: msg }]);
-    setInput("");
-    setTimeout(() => {
-      setMessages(prev => [...prev, { role: 'ai', content: dict.ai.thinking }]);
-      setTimeout(() => {
-        setMessages(prev => {
-          const newMsgs = [...prev];
-          newMsgs[newMsgs.length - 1] = { role: 'ai', content: locale === 'en' ? "This is a placeholder response from Alex. I can provide historical context and details." : "هذا رد تجريبي من إسكندر. يمكنني تزويدك بمعلومات تاريخية وتفاصيل أثرية." };
-          return newMsgs;
-        });
-      }, 1000);
-    }, 500);
-  };
+  const { messages, input, setInput, sendMessage, dict, dir, isLoading } = useChat(artifact, locale);
 
   return (
     <div className="flex flex-col h-[600px] md:h-[calc(100vh)] bg-[var(--color-bg-card)] border-l border-[var(--color-border)] sticky top-0" dir={dir}>
@@ -41,8 +19,9 @@ export function ChatPanel({ artifact, locale }: { artifact: any; locale: "en" | 
         {[dict.detail.q1, dict.detail.q2, dict.detail.q3].map((q, i) => (
           <button 
             key={i} 
-            onClick={() => send(q)}
-            className="inline-block px-3 py-1 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-full text-xs hover:border-[var(--color-gold)] transition-colors text-[var(--color-text-primary)]"
+            onClick={() => sendMessage(q)}
+            disabled={isLoading}
+            className="inline-block px-3 py-1 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-full text-xs hover:border-[var(--color-gold)] transition-colors text-[var(--color-text-primary)] disabled:opacity-50"
           >
             {q}
           </button>
@@ -71,11 +50,12 @@ export function ChatPanel({ artifact, locale }: { artifact: any; locale: "en" | 
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && send(input)}
+            onKeyDown={(e) => e.key === 'Enter' && sendMessage(input)}
             placeholder={dict.detail.inputPlaceholder}
             className="flex-1 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-full px-4 py-2 text-sm focus:outline-none focus:border-[var(--color-gold)] text-[var(--color-text-primary)]"
+            disabled={isLoading}
           />
-          <button onClick={() => send(input)} className="p-2 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-primary)]">
+          <button onClick={() => sendMessage(input)} disabled={isLoading} className="p-2 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-primary)] disabled:opacity-50">
             <Send className="w-5 h-5" />
           </button>
         </div>

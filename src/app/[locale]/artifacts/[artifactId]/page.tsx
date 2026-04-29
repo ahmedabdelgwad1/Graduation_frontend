@@ -1,5 +1,5 @@
 import { PageTransition } from "@/components/layout/PageTransition";
-import { ChatPanel } from "@/components/artifact-detail/ChatPanel";
+import { ChatPanel } from "@/components/features/chat/ChatPanel";
 import { getDictionary } from "@/lib/dictionaries";
 import { getArtifact } from "@/lib/api";
 import Link from "next/link";
