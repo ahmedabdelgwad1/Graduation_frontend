@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import { Building2, Clock, MoreHorizontal } from "lucide-react";
 import { getDictionary, hFont, bodyFont, dir } from "@/lib/dictionaries";
+import { useAdminLocale } from "@/context/AdminLocaleContext";
 
 const L = {
   en: {
@@ -54,9 +56,9 @@ const activityImages = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuAhHXJQ87CPZEeJP3viZuHVNdNcMF5prYqmCkkOtJ1guma5E5nCd3mBcvkwpBIN9knmnTSrKZl2I3x_qmDP5SjzrCdVW96jtZSthPeYYy5pY6w6a5lEun3XMHGqHl0fwGzdfCpgrdHYnmkurrrTcxBpg-MUtECKYifk4qNIEDNHkN9Plun72G-xhGCSpmXhhJWNkZL7Ox0OkpYQBFgzGU15F6z1V2uL4ePAzuMwUvKCpOV8eWWkjWqNVfaLsM2ANPHFJr_-uqwBaf4",
 ];
 
-export default async function AdminDashboard() {
-  const locale: "en" | "ar" = "en";
-  const isAr = (locale as string) === "ar";
+export default function AdminDashboard() {
+  const { locale } = useAdminLocale();
+  const isAr = locale === "ar";
   const t = L[isAr ? "ar" : "en"];
 
   return (

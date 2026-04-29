@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Edit, Trash2, ChevronLeft, ChevronRight } from "lucide-react";
 import { getDictionary, hFont, bodyFont, dir } from "@/lib/dictionaries";
+import { useAdminLocale } from "@/context/AdminLocaleContext";
 
 const L = {
   en: {
@@ -49,9 +51,9 @@ const IMAGES = [
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCEDOytbZTS1GRIL-RWmak3ZGLkyavfnKrURvOAb-uwisBDY4QqsCtQYqI30weSB1RWX8T442CQTRaLRLLQ_LtY_1a9VNxcrDNvX8mNmHebVDDcJqcztGQgWR7xIZGsTZAVMXVvhcmauCYoTWyiULBayuYqsUi33hhk2s5f0atJhJjocJ33VycjCpjj3aQez4VplP1Ej18iv6ZlzQm6KpDJZNdC_oVgFj0rF0am_2KFvFsODl1w1_QN_PjBoI2AuuNcWk8ISy46Tg8",
 ];
 
-export default async function AdminArtifacts() {
-  const locale: "en" | "ar" = "en";
-  const isAr = (locale as string) === "ar";
+export default function AdminArtifacts() {
+  const { locale } = useAdminLocale();
+  const isAr = locale === "ar";
   const t = L[isAr ? "ar" : "en"];
 
   return (

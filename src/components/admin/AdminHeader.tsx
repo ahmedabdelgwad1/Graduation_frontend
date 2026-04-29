@@ -1,8 +1,10 @@
 import { Bell, UserCircle, Search } from "lucide-react";
 import Link from "next/link";
 import { getDictionary } from "@/lib/dictionaries";
+import { useAdminLocale } from "@/context/AdminLocaleContext";
 
-export function AdminHeader({ locale }: { locale: string }) {
+export function AdminHeader({ locale: _localeProp }: { locale: string }) {
+  const { locale } = useAdminLocale();
   const t = getDictionary(locale as "en" | "ar").admin;
   const isRTL = locale === "ar";
 

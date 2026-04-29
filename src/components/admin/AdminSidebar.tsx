@@ -5,9 +5,11 @@ import {
   LayoutDashboard, Library, PlusCircle, Users, Settings, LogOut,
 } from "lucide-react";
 import { getDictionary } from "@/lib/dictionaries";
+import { useAdminLocale } from "@/context/AdminLocaleContext";
 
-export function AdminSidebar({ locale }: { locale: string }) {
+export function AdminSidebar({ locale: _localeProp }: { locale: string }) {
   const pathname = usePathname();
+  const { locale, setLocale } = useAdminLocale();
   const t = getDictionary(locale as "en" | "ar").admin;
   const isRTL = locale === "ar";
 
@@ -98,8 +100,28 @@ export function AdminSidebar({ locale }: { locale: string }) {
 
       {/* Footer */}
       <div className="px-2 pt-4 border-t border-[var(--color-primary)]/10">
+        {/* Language Switch */}
+        <div className="flex gap-2 px-4 mb-3">
+          <button
+            onClick={() => setLocale("en")}
+            className={`flex-1 text-center py-1 text-[10px] font-[family-name:var(--font-label-sm)] uppercase tracking-widest border transition-colors ${
+              locale === "en"
+                ? "border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                : "border-gray-700 text-gray-500 hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]/70"
+            }`}
+          >EN</button>
+          <button
+            onClick={() => setLocale("ar")}
+            className={`flex-1 text-center py-1 text-sm font-[family-name:var(--font-arabic)] border transition-colors ${
+              locale === "ar"
+                ? "border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                : "border-gray-700 text-gray-500 hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]/70"
+            }`}
+          >ع</button>
+        </div>
+
         <Link
-          href="/en/welcome"
+          href={`/${locale}/welcome`}
           className="flex items-center gap-4 px-4 py-3 font-[family-name:var(--font-label-sm)] uppercase tracking-widest text-xs text-gray-500 hover:text-[var(--color-primary)]/80 hover:bg-[#1a1825] rounded-sm transition-all duration-300"
         >
           <LogOut size={18} />

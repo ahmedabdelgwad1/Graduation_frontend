@@ -1,10 +1,12 @@
+"use client";
 import { Info, PenTool, Camera } from "lucide-react";
 import { getDictionary } from "@/lib/dictionaries";
+import { useAdminLocale } from "@/context/AdminLocaleContext";
 
-export default async function AdminNewArtifact() {
-  const locale: "en" | "ar" = "en";
+export default function AdminNewArtifact() {
+  const { locale } = useAdminLocale();
   const t = getDictionary(locale as "en" | "ar").admin.new;
-  const isRTL = (locale as string) === "ar";
+  const isRTL = locale === "ar";
   const arabicClass = isRTL ? "font-[family-name:var(--font-arabic)]" : "";
   const headingClass = isRTL
     ? "font-[family-name:var(--font-arabic)]"
