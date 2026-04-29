@@ -96,10 +96,6 @@ export default async function ArtifactDetailPage({ params }: { params: Promise<{
           <div className="prose prose-invert max-w-none text-[var(--color-text-primary)] font-[family-name:var(--font-body)] text-lg leading-relaxed mb-8">
             <p>{description}</p>
           </div>
-
-          <a href={artifact.link || "#"} target="_blank" rel="noopener noreferrer" className="text-[var(--color-gold)] hover:text-[var(--color-gold-light)] text-sm font-sans underline decoration-[rgba(201,168,76,0.3)] underline-offset-4">
-            {dict.detail.viewOnBibaAlex}
-          </a>
         </div>
 
         {/* Right Column - Chat Panel */}
