@@ -87,7 +87,7 @@ export default function WelcomePage({ params }: { params: Promise<{ locale: stri
           <p className="font-[family-name:var(--font-cinzel)] text-[rgba(201,168,76,0.5)] uppercase tracking-[0.2em] text-[10px]">
             Bibliotheca Alexandrina © 2024
           </p>
-          <a href={`/${locale}/admin/login`} className="font-[family-name:var(--font-cinzel)] text-[rgba(201,168,76,0.3)] hover:text-[rgba(201,168,76,0.8)] uppercase tracking-[0.2em] text-[10px] transition-colors">
+          <a href="/admin/login" className="font-[family-name:var(--font-cinzel)] text-[rgba(201,168,76,0.3)] hover:text-[rgba(201,168,76,0.8)] uppercase tracking-[0.2em] text-[10px] transition-colors">
             {locale === 'ar' ? 'بوابة الإدارة' : 'Admin Portal'}
           </a>
         </footer>

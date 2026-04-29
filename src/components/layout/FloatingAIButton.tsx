@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X, Send, Mic } from "lucide-react";
 import { getDictionary, hFont, dir } from "@/lib/dictionaries";
@@ -35,6 +35,44 @@ export function FloatingAIButton({ locale }: { locale: "en" | "ar" }) {
         },
       ]);
     }, 800);
+  };
+
+  const [isRecording, setIsRecording] = useState(false);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
+      let chunks: BlobPart[] = [];
+      
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data.size > 0) chunks.push(e.data);
+      };
+      
+      mediaRecorder.onstop = () => {
+        const audioBlob = new Blob(chunks, { type: 'audio/webm' });
+        // Simulating sending to FastAPI
+        setMessages(p => [...p, { role: "user", content: isAr ? '🎤 رسالة صوتية...' : '🎤 Voice message...' }]);
+        setTimeout(() => {
+          setMessages(p => [...p, { role: "ai", content: isAr ? "[تم معالجة الصوت بـ Whisper] مرحباً، أنا إسكندر. كيف أساعدك؟" : "[Processed by Whisper] Hello, I am Alex. How can I help?" }]);
+        }, 1500);
+        stream.getTracks().forEach(t => t.stop());
+      };
+      
+      mediaRecorder.start();
+      setIsRecording(true);
+    } catch (err) {
+      alert(isAr ? 'حدث خطأ أثناء الوصول للمايكروفون.' : 'Error accessing microphone.');
+    }
+  };
+
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && isRecording) {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+    }
   };
 
   return (
@@ -84,7 +122,7 @@ export function FloatingAIButton({ locale }: { locale: "en" | "ar" }) {
                   className={`p-3 rounded-lg max-w-[80%] text-sm ${
                     m.role === "user"
                       ? "bg-[var(--color-gold)] text-[var(--color-bg-primary)] self-end"
-                      : `bg-[var(--color-bg-primary)] ${isAr ? "border-r-4" : "border-l-4"} border-[var(--color-gold)] self-start`
+                      : `bg-[var(--color-bg-primary)] ${isAr ? "border-r-4" : "border-l-4"} border-[var(--color-gold)] self-start text-[var(--color-text-primary)]`
                   } ${isAr ? "font-[family-name:var(--font-arabic)]" : ""}`}
                 >
                   {m.role === "ai" && (
@@ -98,7 +136,17 @@ export function FloatingAIButton({ locale }: { locale: "en" | "ar" }) {
             {/* Input */}
             <div className="p-4 border-t border-[var(--color-border)] bg-[var(--color-bg-primary)]">
               <div className="flex items-center gap-2">
-                <button className="p-2 rounded-full bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)]">
+                <button 
+                  onMouseDown={startRecording}
+                  onMouseUp={stopRecording}
+                  onTouchStart={startRecording}
+                  onTouchEnd={stopRecording}
+                  className={`p-2 rounded-full transition-colors ${
+                    isRecording 
+                      ? "bg-red-500 text-white animate-pulse" 
+                      : "bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)]"
+                  }`}
+                >
                   <Mic className="w-5 h-5" />
                 </button>
                 <input
@@ -106,13 +154,15 @@ export function FloatingAIButton({ locale }: { locale: "en" | "ar" }) {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && send(input)}
-                  placeholder={dict.detail.inputPlaceholder}
+                  placeholder={isRecording ? (isAr ? 'جاري التسجيل...' : 'Recording...') : dict.detail.inputPlaceholder}
                   dir={d}
+                  disabled={isRecording}
                   className={`flex-1 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-full px-4 py-2 text-sm focus:outline-none focus:border-[var(--color-gold)] text-[var(--color-text-primary)] ${isAr ? "font-[family-name:var(--font-arabic)]" : ""}`}
                 />
                 <button
                   onClick={() => send(input)}
-                  className="p-2 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-primary)]"
+                  disabled={isRecording}
+                  className="p-2 rounded-full bg-[var(--color-gold)] text-[var(--color-bg-primary)] disabled:opacity-50"
                 >
                   <Send className="w-5 h-5" />
                 </button>

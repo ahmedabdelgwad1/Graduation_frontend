@@ -43,13 +43,13 @@ export function SectionCard({ section, locale }: { section: Section; locale: "en
           {locale === 'ar' ? section.nameAr : section.nameEn}
         </h3>
         {/* Secondary name dimmed */}
-        <h4 className={`text-sm text-[var(--color-text-secondary)]/60 text-center ${locale === 'ar' ? 'font-[family-name:var(--font-cinzel)]' : 'font-[family-name:var(--font-noto-naskh)]'}`}>
+        <h4 className={`text-sm text-[var(--color-text-secondary)]/60 text-center mb-4 ${locale === 'ar' ? 'font-[family-name:var(--font-cinzel)]' : 'font-[family-name:var(--font-noto-naskh)]'}`}>
           {locale === 'ar' ? section.nameEn : section.nameAr}
         </h4>
         
-        <div className="absolute bottom-4 right-4 bg-[var(--color-bg-primary)] px-3 py-1 rounded-full border border-[var(--color-border)]">
+        <div className="mt-auto bg-[var(--color-bg-primary)] px-3 py-1 rounded-full border border-[var(--color-border)]">
           <span className="text-xs text-[var(--color-text-primary)] font-sans">
-            {locale === 'en' ? `${section.count} artifacts` : `${section.count} قطع`}
+            {locale === 'en' ? `${section.count} artifacts` : `${section.count} قطعه`}
           </span>
         </div>
       </div>
