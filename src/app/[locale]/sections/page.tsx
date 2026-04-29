@@ -28,9 +28,14 @@ export default function SectionsPage({ params }: { params: Promise<{ locale: str
           <div className={`text-[var(--color-gold)] text-sm tracking-widest ${locale === 'ar' ? 'font-[family-name:var(--font-noto-naskh)] text-base' : 'font-[family-name:var(--font-cinzel)]'}`}>
             {locale === 'ar' ? 'مكتبة الإسكندرية' : 'Bibliotheca Alexandrina'}
           </div>
-          <Link href={`/${otherLocale}/sections`} className="text-sm border border-[var(--color-border)] px-3 py-1 rounded hover:border-[var(--color-gold)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)] transition-colors font-sans">
-            {otherLocaleLabel}
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link href={`/${locale}/welcome`} className="flex items-center justify-center text-sm border border-[var(--color-border)] w-8 h-8 rounded hover:border-[var(--color-gold)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)] transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </Link>
+            <Link href={`/${otherLocale}/sections`} className="text-sm border border-[var(--color-border)] px-3 py-1 rounded hover:border-[var(--color-gold)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)] transition-colors font-sans">
+              {otherLocaleLabel}
+            </Link>
+          </div>
         </header>
 
         <main className="flex-1 max-w-[1280px] w-full mx-auto px-6 py-12">

@@ -66,12 +66,15 @@ export default async function ArtifactsPage({
         className="min-h-screen bg-[var(--color-bg-primary)] papyrus-texture w-full flex flex-col"
       >
         {/* Header */}
-        <header className="sticky top-0 z-40 bg-[var(--color-bg-secondary)]/90 backdrop-blur border-b border-[var(--color-gold)] p-4 flex items-center">
+        <header className="sticky top-0 z-40 bg-[var(--color-bg-secondary)]/90 backdrop-blur border-b border-[var(--color-gold)] p-4 flex items-center justify-between">
           <Link
             href={`/${locale}/sections`}
             className={`text-[var(--color-gold)] hover:text-[var(--color-gold-light)] flex items-center gap-2 text-sm ${isAr ? "font-[family-name:var(--font-arabic)] flex-row-reverse" : "font-sans"}`}
           >
             {dict.artifacts.backToCollections}
+          </Link>
+          <Link href={`/${locale}/welcome`} className="flex items-center justify-center text-sm border border-[var(--color-border)] w-8 h-8 rounded hover:border-[var(--color-gold)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </Link>
         </header>
 

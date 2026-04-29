@@ -44,9 +44,14 @@ export default async function ArtifactDetailPage({ params }: { params: Promise<{
         
         {/* Left Column - Details */}
         <div className="flex-1 md:w-[60%] p-6 relative overflow-y-auto pb-24 md:pb-6">
-          <Link href={`/${locale}/sections/${artifact.section_number || 38}`} className="inline-block text-[var(--color-gold)] hover:text-[var(--color-gold-light)] font-sans text-sm mb-6">
-            {dict.detail.back}
-          </Link>
+          <div className="flex justify-between items-center mb-6">
+            <Link href={`/${locale}/sections/${artifact.section_number || 38}`} className="inline-block text-[var(--color-gold)] hover:text-[var(--color-gold-light)] font-sans text-sm">
+              {dict.detail.back}
+            </Link>
+            <Link href={`/${locale}/welcome`} className="flex items-center justify-center text-sm border border-[var(--color-border)] w-8 h-8 rounded hover:border-[var(--color-gold)] text-[var(--color-text-secondary)] hover:text-[var(--color-gold)] transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </Link>
+          </div>
 
           <div className="relative w-full h-[300px] md:h-[400px] border border-[var(--color-border)] rounded-xl overflow-hidden mb-8 shadow-[0_0_20px_rgba(201,168,76,0.1)] p-1 bg-[var(--color-bg-card)]">
             {artifact.image_url ? (

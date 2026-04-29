@@ -1,5 +1,3 @@
-import { GlobalNavigation } from "@/components/layout/GlobalNavigation";
-
 export default async function LocaleLayout({
   children,
   params,
@@ -17,7 +15,6 @@ export default async function LocaleLayout({
       lang={locale}
       className={`w-full min-h-screen flex flex-col ${isRTL ? "font-[family-name:var(--font-noto-naskh)]" : ""}`}
     >
-      <GlobalNavigation locale={locale} />
       {children}
     </div>
   );
