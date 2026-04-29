@@ -12,10 +12,10 @@ export function AdminSidebar({ locale }: { locale: string }) {
   const isRTL = locale === "ar";
 
   const NAV_ITEMS = [
-    { href: `/${locale}/admin`,               label: t.nav.overview,      icon: LayoutDashboard, exact: true  },
-    { href: `/${locale}/admin/artifacts`,     label: t.nav.collection,    icon: Library,         exact: false },
-    { href: `/${locale}/admin/artifacts/new`, label: t.nav.acquisitions,  icon: PlusCircle,      exact: true  },
-    { href: `/${locale}/admin/settings`,      label: t.nav.settings,      icon: Settings,        exact: false },
+    { href: `/admin`,               label: t.nav.overview,      icon: LayoutDashboard, exact: true  },
+    { href: `/admin/artifacts`,     label: t.nav.collection,    icon: Library,         exact: false },
+    { href: `/admin/artifacts/new`, label: t.nav.acquisitions,  icon: PlusCircle,      exact: true  },
+    { href: `/admin/settings`,      label: t.nav.settings,      icon: Settings,        exact: false },
   ];
 
   // Custom active check:
@@ -24,11 +24,8 @@ export function AdminSidebar({ locale }: { locale: string }) {
   // - Settings: startsWith match
   const isActive = (href: string, exact: boolean) => {
     if (exact) return pathname === href;
-    // For non-exact: active if startsWith BUT not if a more specific exact item would match
-    const newHref = `/${locale}/admin/artifacts/new`;
-    if (href === `/${locale}/admin/artifacts`) {
-      // Only active if we're under /artifacts but NOT on /artifacts/new
-      return pathname.startsWith(href) && pathname !== newHref;
+    if (href === `/admin/artifacts`) {
+      return pathname.startsWith(href) && pathname !== `/admin/artifacts/new`;
     }
     return pathname.startsWith(href);
   };
@@ -59,7 +56,7 @@ export function AdminSidebar({ locale }: { locale: string }) {
       {/* Quick CTA */}
       <div className="px-6 mb-8">
         <Link
-          href={`/${locale}/admin/artifacts/new`}
+          href="/admin/artifacts/new"
           className="w-full border border-[var(--color-primary)] text-[var(--color-primary)] py-2 font-[family-name:var(--font-label-sm)] uppercase tracking-widest text-xs transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-[#0a0a0f] flex justify-center items-center gap-2"
         >
           <PlusCircle size={15} /> {t.addArtifact}
@@ -101,20 +98,8 @@ export function AdminSidebar({ locale }: { locale: string }) {
 
       {/* Footer */}
       <div className="px-2 pt-4 border-t border-[var(--color-primary)]/10">
-        {/* Language Switch */}
-        <div className="flex gap-2 px-4 mb-3">
-          <Link
-            href={pathname.replace(`/${locale}/`, "/en/")}
-            className={`flex-1 text-center py-1 text-[10px] font-[family-name:var(--font-label-sm)] uppercase tracking-widest border transition-colors ${locale === "en" ? "border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/10" : "border-gray-700 text-gray-500 hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]/70"}`}
-          >EN</Link>
-          <Link
-            href={pathname.replace(`/${locale}/`, "/ar/")}
-            className={`flex-1 text-center py-1 text-sm font-[family-name:var(--font-arabic)] border transition-colors ${locale === "ar" ? "border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/10" : "border-gray-700 text-gray-500 hover:border-[var(--color-primary)]/50 hover:text-[var(--color-primary)]/70"}`}
-          >ع</Link>
-        </div>
-
         <Link
-          href={`/${locale}/welcome`}
+          href="/en/welcome"
           className="flex items-center gap-4 px-4 py-3 font-[family-name:var(--font-label-sm)] uppercase tracking-widest text-xs text-gray-500 hover:text-[var(--color-primary)]/80 hover:bg-[#1a1825] rounded-sm transition-all duration-300"
         >
           <LogOut size={18} />

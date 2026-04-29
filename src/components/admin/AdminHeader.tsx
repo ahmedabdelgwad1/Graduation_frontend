@@ -37,7 +37,7 @@ export function AdminHeader({ locale }: { locale: string }) {
         </button>
 
         <Link
-          href={`/${locale}/admin/settings`}
+          href="/admin/settings"
           aria-label="Profile settings"
           className="text-gray-500 hover:text-[var(--color-primary)] transition-colors"
         >

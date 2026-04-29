@@ -2,7 +2,6 @@
 import { Eye } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { use } from "react";
 import { getDictionary, hFont, dir } from "@/lib/dictionaries";
 
 const L = {
@@ -34,7 +33,7 @@ export default function AdminLogin() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/${locale}/admin`);
+    router.push(`/admin`);
   };
 
   return (
